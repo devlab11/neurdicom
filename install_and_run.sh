@@ -179,7 +179,7 @@ logInfo "Running application"
 if [[ $use_cuda -eq 1 ]]; then
   logInfo "CUDA installed"
 else
-  if [[ $to_install -eq 1]]; then
+  if [[ $to_install -eq 1 ]]; then
     docker-compose up --build
   else
     docker-compose up
