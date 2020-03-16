@@ -146,13 +146,13 @@ fi
 # Clone project if there is only build script
 if command -v whiptail &>/dev/null; then
   if whiptail --title  "Install?" --yesno  "Would you like to clone application from repository?" 10 60; then
-    git clone https://github.com/reactmed/neurdicom.git
+    git clone https://github.com/devlab11/neurdicom.git
     logInfo "Project cloned to local directory"
   fi
 else
   read -p "Would you like to clone application from repository [Y/N]? " to_clone
   if [[ "$to_clone" == "Y" ]]; then
-    git clone https://github.com/reactmed/neurdicom.git
+    git clone https://github.com/devlab11/neurdicom.git
     logInfo "Project cloned to local directory"
   fi
 fi
