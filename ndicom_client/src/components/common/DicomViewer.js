@@ -49,7 +49,7 @@ class DicomViewer extends Component {
         const instance = this.props.instance;
         const w = parseFloat(instance['columns']);
         const h = parseFloat(instance['rows']);
-        const url = `/api/instances/${this.props.instance.id}/image`;
+        const url = `http://localhost:8080/api/instances/${this.props.instance.id}/image`;
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(45, this.node.clientWidth / this.node.clientHeight, 0.1, 100);
         this.renderer = new THREE.WebGLRenderer();

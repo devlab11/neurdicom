@@ -3,7 +3,7 @@ const PLUGINS_ROOT_URL = '/api/plugins';
 export default class PluginsService {
     static findPlugins(f) {
         return fetch(
-            PLUGINS_ROOT_URL
+            'http://localhost:8080' + PLUGINS_ROOT_URL
         ).then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response;
@@ -20,7 +20,7 @@ export default class PluginsService {
 
     static findPluginById(f, id) {
         fetch(
-            `${PLUGINS_ROOT_URL}/${id}`
+            'http://localhost:8080' + `${PLUGINS_ROOT_URL}/${id}`
         ).then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response;

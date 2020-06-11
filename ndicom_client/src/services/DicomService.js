@@ -8,7 +8,7 @@ const INSTANCES_ROOT_URL = '/api/instances';
 export default class DicomService {
     static findPatients(f, params = {}) {
         fetch(
-            `${PATIENTS_ROOT_URL}?${queryString.stringify(params)}`
+            'http://localhost:8080' + `${PATIENTS_ROOT_URL}?${queryString.stringify(params)}`
         ).then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response;
@@ -25,7 +25,7 @@ export default class DicomService {
 
     static findStudies(f) {
         fetch(
-            STUDIES_ROOT_URL
+            'http://localhost:8080' + STUDIES_ROOT_URL
         ).then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response;
@@ -42,7 +42,7 @@ export default class DicomService {
 
     static findStudiesByPatient(f, patientId) {
         fetch(
-            `/api/patients/${patientId}/studies`
+            'http://localhost:8080' + `/api/patients/${patientId}/studies`
         ).then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response;
@@ -59,7 +59,7 @@ export default class DicomService {
 
     static findStudyById(studyId, f) {
         fetch(
-            `${STUDIES_ROOT_URL}/${studyId}`
+            'http://localhost:8080' + `${STUDIES_ROOT_URL}/${studyId}`
         ).then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response;
@@ -76,7 +76,7 @@ export default class DicomService {
 
     static findSeries(f) {
         fetch(
-            SERIES_ROOT_URL
+            'http://localhost:8080' + SERIES_ROOT_URL
         ).then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response;
@@ -93,7 +93,7 @@ export default class DicomService {
 
     static findInstances(f) {
         fetch(
-            INSTANCES_ROOT_URL
+            'http://localhost:8080' + INSTANCES_ROOT_URL
         ).then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response;
@@ -110,7 +110,7 @@ export default class DicomService {
 
     static findStudiesByPatientId(patientId, f) {
         fetch(
-            `${PATIENTS_ROOT_URL}/${patientId}/studies`
+            'http://localhost:8080' + `${PATIENTS_ROOT_URL}/${patientId}/studies`
         ).then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response;
@@ -127,7 +127,7 @@ export default class DicomService {
 
     static findSeriesByStudyId(studyId, f) {
         fetch(
-            `${STUDIES_ROOT_URL}/${studyId}/series`
+            'http://localhost:8080' + `${STUDIES_ROOT_URL}/${studyId}/series`
         ).then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response;
@@ -144,7 +144,7 @@ export default class DicomService {
 
     static findInstancesBySeriesId(seriesId, f) {
         fetch(
-            `${SERIES_ROOT_URL}/${seriesId}/instances`
+            'http://localhost:8080' +  `${SERIES_ROOT_URL}/${seriesId}/instances`
         ).then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response;
@@ -161,7 +161,7 @@ export default class DicomService {
 
     static findInstancesById(instanceId, f) {
         fetch(
-            `${INSTANCES_ROOT_URL}/${instanceId}`
+            'http://localhost:8080' + `${INSTANCES_ROOT_URL}/${instanceId}`
         ).then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response;
@@ -178,7 +178,7 @@ export default class DicomService {
 
     static findTagsByInstanceId(instanceId, f) {
         fetch(
-            `${INSTANCES_ROOT_URL}/${instanceId}/tags`
+            'http://localhost:8080' + `${INSTANCES_ROOT_URL}/${instanceId}/tags`
         ).then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response;

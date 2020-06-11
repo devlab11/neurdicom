@@ -5,7 +5,7 @@ const DICOM_NODES_ROOT_URL = '/api/dicom_nodes';
 export default class DicomNodeService {
     static findDicomNodes(f, params = {}) {
         fetch(
-            `${DICOM_NODES_ROOT_URL}?${queryString.stringify(params)}`
+            'http://localhost:8080' + `${DICOM_NODES_ROOT_URL}?${queryString.stringify(params)}`
         ).then(function (response) {
             if (response.status >= 200 && response.status < 300) {
                 return response;

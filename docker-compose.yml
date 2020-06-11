@@ -14,7 +14,7 @@ services:
     build: ./ndicom_server
     command: python ./app.py
     volumes:
-      # - ./ndicom_server:/app
+      - ./ndicom_server:/app
       - ./images:/images
     environment:
       - DB_NAME=neurdicom
@@ -27,24 +27,24 @@ services:
     ports:
       - "8080:8080"
       - "4242:4242"
-  # front:
-  #   build: ./ndicom_client
-  #   # command: npm start
-  #   volumes:
-  #     - ./ndicom_client:/app
-  #     - node-modules:/app/node_modules
-  #   environment:
-  #     - API_HOST=api
-  #     - API_URL_BROWSER=/api
-  #     - API_URL=http://api:3000/
-  #     - API_PORT=8080
-  #   ports:
-  #     - "3000:3000"
+  front:
+    build: ./ndicom_client
+    command: npm start
+    volumes:
+      - ./ndicom_client:/app
+      - node-modules:/app/node_modules
+    environment:
+      - API_HOST=api
+      - API_URL_BROWSER=/api
+      - API_URL=http://api:8080/
+      - API_PORT=8080
+    ports:
+      - "3000:3000"
   nginx:
     image: nginx
     depends_on:
       - api
-      # - front
+      - front
     ports:
       - "80:80"
     volumes:
@@ -54,4 +54,4 @@ services:
       - "80"
 volumes:
   pg-data:
-  # node-modules:
+  node-modules:
