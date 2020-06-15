@@ -4,6 +4,8 @@ import axios, {post} from 'axios';
 import MenuContainer from "../components/common/MenuContainer";
 import Dropzone from "react-dropzone";
 
+import {baseApiUrl} from '../additionalConfig';
+
 class UploadDicomPage extends Component {
     constructor(props) {
         super(props);
@@ -13,6 +15,7 @@ class UploadDicomPage extends Component {
             isPending: false
         }
     }
+    
 
     addFile = (files) => {
         console.log(files);
@@ -35,7 +38,7 @@ class UploadDicomPage extends Component {
         const config = {
             headers: { 'content-type': 'multipart/form-data' }
         };
-        axios.post('/api/instances/upload', form, config).then((resp) => {
+        axios.post(baseApiUrl + '/api/instances/upload', form, config).then((resp) => {
             alert('Все файлы загружены!');
             this.setState({
                 isPending: false
